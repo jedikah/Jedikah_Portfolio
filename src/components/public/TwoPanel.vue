@@ -9,7 +9,7 @@
       dark
       name="panel_1"
       class="row transparent"
-      style="height: 400px"
+      style="height: 700px"
     >
       <slot></slot>
     </q-tab-panel>
@@ -17,7 +17,7 @@
     <q-tab-panel
       name="panel_2"
       class="column no-padding no-margin justify-center items-center"
-      style="height: 600px"
+      style="height: 700px"
     >
       <slot name="panel_2"></slot>
     </q-tab-panel>

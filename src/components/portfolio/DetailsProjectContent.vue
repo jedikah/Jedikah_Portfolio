@@ -4,7 +4,7 @@
     :limits="[$q.screen.xs ? 420 : 220, 570]"
     unit="px"
     :horizontal="$q.screen.xs"
-    style="height: 540px"
+    style="height: 640px"
   >
     <template v-slot:before>
       <div class="q-pa-md portfolio-carousel column">
@@ -39,20 +39,6 @@
             :name="n"
             :img-src="`portfolio/${src_name}/${n}.jpg`"
           />
-
-          <template v-slot:control>
-            <q-carousel-control position="top-left">
-              <q-btn
-                push
-                round
-                dense
-                color="white"
-                text-color="primary"
-                :icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
-                @click="fullscreen = !fullscreen"
-              />
-            </q-carousel-control>
-          </template>
         </q-carousel>
       </div>
     </template>

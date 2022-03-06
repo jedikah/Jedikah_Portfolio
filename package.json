@@ -13,14 +13,14 @@
     "deploy": "push-dir --dir=dist/spa --remote=gh-pages --branch=master"
   },
   "dependencies": {
-    "@quasar/extras": "^1.11.2",
+    "@quasar/extras": "^1.12.5",
     "core-js": "^3.6.5",
-    "quasar": "^2.1.9",
+    "quasar": "^2.5.5",
     "vue-i18n": "^9.0.0-beta.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
-    "@quasar/app": "^3.1.5",
+    "@quasar/app": "^3.3.3",
     "@types/compression": "^1.7.2",
     "@types/node": "^10.17.15",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
