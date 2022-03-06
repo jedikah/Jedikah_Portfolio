@@ -1,6 +1,7 @@
 // app global css in SCSS form
 :root {
   --text-multiplier: 1;
+  --text-display: block;
 }
 // fonts
 @font-face {
@@ -23,19 +24,25 @@
 }
 
 // responsive text
-@media only screen and (max-width: 768px) {
+
+@media only screen and (max-width: 480px) {
+  :root {
+    --text-multiplier: 1.2;
+    --text-display: none;
+  }
+}
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  :root {
+    --text-multiplier: 1.6;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1125px) {
   :root {
     --text-multiplier: 1.6;
   }
 }
 
-@media only screen and (min-width: 768px) {
-  :root {
-    --text-multiplier: 1.6;
-  }
-}
-
-@media only screen and (min-width: 1125px) {
+@media only screen and (min-width: 1126px) {
   :root {
     --text-multiplier: 1.9;
   }
@@ -45,6 +52,10 @@
   :root {
     --text-multiplier: 2;
   }
+}
+
+.text-display {
+  display: var(--text-display);
 }
 
 /* Declare text styles using calc() function and the multiplier */
@@ -63,17 +74,35 @@ h3 {
   line-height: calc(18px * var(--text-multiplier));
   font-family: 'PlayfairDisplay', 'serif';
 }
+
+h4 {
+  font-size: calc(12px * var(--text-multiplier));
+  line-height: calc(18px * var(--text-multiplier));
+  font-family: 'PlayfairDisplay', 'serif';
+}
+
+h5 {
+  font-size: calc(12px * var(--text-multiplier));
+  line-height: calc(18px * var(--text-multiplier));
+  font-family: 'PlayfairDisplay', 'serif';
+}
+
+h6 {
+  font-size: calc(12px * var(--text-multiplier));
+  line-height: calc(18px * var(--text-multiplier));
+}
+
 p {
-  font-size: calc(7px * var(--text-multiplier));
+  font-size: calc(10px * var(--text-multiplier));
   line-height: calc(10px * var(--text-multiplier));
 }
 q {
-  font-size: calc(7px * var(--text-multiplier));
+  font-size: calc(10px * var(--text-multiplier));
   line-height: calc(10px * var(--text-multiplier));
   text-align: justify;
 }
 div {
-  font-size: calc(8px * var(--text-multiplier));
+  font-size: calc(10px * var(--text-multiplier));
   line-height: calc(12px * var(--text-multiplier));
 }
 

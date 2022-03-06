@@ -3,35 +3,80 @@
     <q-carousel
       animated
       v-model="slide"
-      navigation
+      ref="carousel"
       infinite
+      swipeable
       :autoplay="autoplay"
-      arrows
       transition-prev="slide-right"
       transition-next="slide-left"
-      @mouseenter="autoplay = false"
-      @mouseleave="autoplay = true"
       class="full-height full-width absolute"
       style="z-index: 1"
     >
-      <q-carousel-slide :name="1" img-src="slide1.jpg" />
-      <q-carousel-slide :name="2" img-src="slide2.jpg" />
-      <q-carousel-slide :name="3" img-src="slide3.jpg" />
+      <q-carousel-slide :name="1" style="padding: 0; overflow: hidden">
+        <q-img src="slide1.jpg" fit="cover" class="full-width full-height">
+          <!-- <div class="absolute-bottom-right text-subtitle2">Caption</div> -->
+        </q-img>
+      </q-carousel-slide>
+
+      <q-carousel-slide :name="2" style="padding: 0; overflow: hidden">
+        <q-img src="slide2.jpg" fit="cover" class="full-width full-height">
+          <!-- <div class="absolute-bottom-right text-subtitle2">Caption</div> -->
+        </q-img>
+      </q-carousel-slide>
+
+      <q-carousel-slide :name="3" style="padding: 0; overflow: hidden">
+        <q-img src="slide3.jpg" fit="cover" class="full-width full-height">
+          <!-- <div class="absolute-bottom-right text-subtitle2">Caption</div> -->
+        </q-img>
+      </q-carousel-slide>
+
+      <template v-slot:control>
+        <q-carousel-control
+          class="full-height full-width text-white absolute row justify-center items-center"
+          style="background: #00000068; position: absolute; margin: 0"
+        >
+          <div class="row full-width full-height justify-center items-center">
+            <div
+              class="full-width row col-md col-xs-12 row justify-center items-center"
+              style="margin: 50px"
+            >
+              <h1 class="full-width text-center">
+                Gabriel <span style="color: #e19f00">Kwan</span>
+              </h1>
+              <br />
+              <p style="font-size: 20px; line-height: 28px; text-align: center">
+                Je suis un <b>Développeur web fullstack</b> et <b>mobile</b>
+              </p>
+            </div>
+            <Moi
+              class="col-md-3 col-xs-8 q-mr-lg"
+              style="background: #00000038; border-radius: 20px"
+            />
+          </div>
+
+          <q-btn
+            class="absolute"
+            style="left: 0"
+            flat
+            round
+            dense
+            color="white"
+            icon="chevron_left"
+            @click="$refs.carousel.previous()"
+          />
+          <q-btn
+            class="absolute"
+            style="right: 0"
+            flat
+            round
+            dense
+            text-color="white"
+            icon="navigate_next"
+            @click="$refs.carousel.next()"
+          />
+        </q-carousel-control>
+      </template>
     </q-carousel>
-    <div
-      class="full-height full-width text-white absolute row justify-center items-center"
-      style="z-index: 2; background: #00000068"
-    >
-      <div class="full-width row justify-center items-center">
-        <h1 class="full-width text-center">
-          Gabriel <span style="color: #e19f00">Kwan</span>
-        </h1>
-        <br />
-        <p style="font-size: 20px; line-height: 28px; text-align: center">
-          Je suis un <b>Développeur web fullstack</b> et <b>mobile</b>
-        </p>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -55,8 +100,7 @@ const accueilMeta: Meta = {
       `,
     },
     keywords: {
-      name:
-        'freelanceur c.v developpeur web mobile fullstack front-end back-end VueJs Quasar-Framework electron',
+      name: 'freelanceur c.v developpeur web mobile fullstack front-end back-end VueJs Quasar-Framework electron',
       content: `Gabriel Kwan...
       Je suis un Développeur web fullstack et mobile... Qui suis-je ?
       Développeur & Freelanceur... COMPÉTENCES: Front-end et back-end
@@ -79,6 +123,9 @@ const accueilMeta: Meta = {
 
 export default defineComponent({
   name: 'Accueil',
+  components: {
+    Moi: require('../moi/QuiSuisJe.vue').default,
+  },
   setup() {
     useMeta(accueilMeta);
     return {

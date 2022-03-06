@@ -1,53 +1,56 @@
 <template>
-  <Card title="Mon portfolio" icon="business_center">
-    <template v-slot:section>
-      <TwoPanel v-model="switchName">
-        <card-gallery
-          v-for="(dp, key) in detailsProjects"
-          :key="key"
-          :src_name="dp.src_name"
-          :label="dp.label"
-          @click="
-            switchName = 'panel_2';
-            selected = dp;
+  <TwoPanel v-model="switchName">
+    <card-gallery
+      v-for="(dp, key) in detailsProjects"
+      :key="key"
+      :src_name="dp.src_name"
+      :label="dp.label"
+      @click="
+        switchName = 'panel_2';
+        selected = dp;
+      "
+    />
+
+    <template v-slot:panel_2>
+      <div class="full-width full-height">
+        <DetailsProjectBanner
+          @onBack="
+            switchName = 'panel_1';
+            selected = null;
           "
         />
 
-        <template v-slot:panel_2>
-          <div class="full-width full-height">
-            <DetailsProjectBanner
-              @onBack="
-                switchName = 'panel_1';
-                selected = null;
-              "
-            />
-
-            <DetailsProjectContent
-              v-if="selected"
-              :carousel_length="selected.carousel_length"
-              :src_name="selected.src_name"
-              :caracteristics="selected.caracteristics"
-              :descriptions="selected.descriptions"
-            />
-          </div>
-        </template>
-      </TwoPanel>
+        <DetailsProjectContent
+          v-if="selected"
+          class="col-xs-11"
+          :carousel_length="selected.carousel_length"
+          :src_name="selected.src_name"
+          :caracteristics="selected.caracteristics"
+          :descriptions="selected.descriptions"
+        />
+      </div>
     </template>
-  </Card>
+  </TwoPanel>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 
+type Selected = {
+  carousel_length: number;
+  src_name: string;
+  caracteristics: string;
+  descriptions: string;
+};
+
 export default defineComponent({
   components: {
-    Card: require('../utils/Card.vue').default,
     DetailsProjectBanner: require('./DetailsProjectBanner.vue').default,
     DetailsProjectContent: require('./DetailsProjectContent.vue').default,
   },
   setup() {
     const switchName = ref('panel_1');
-    const selected = ref(null);
+    const selected = ref<typeof detailsProjects[1] | null>(null);
 
     const detailsProjects = [
       {

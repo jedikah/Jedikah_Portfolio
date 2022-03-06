@@ -11,7 +11,7 @@
       />
 
       <q-toolbar-title class="text-uppercase text-center">
-        Gabriel Kwan
+        <h3>Gabriel Kwan</h3>
       </q-toolbar-title>
     </q-toolbar>
   </q-header>

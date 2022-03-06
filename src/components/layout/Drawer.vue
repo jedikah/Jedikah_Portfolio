@@ -26,7 +26,7 @@
             z-index: 1;
             font-size: 18px;
             background: #e19f00c4;
-            line-height: 30px
+            line-height: 30px;
             font-weight: 600;
             letter-spacing: 1.5px;
           "
@@ -36,8 +36,15 @@
       </div>
     </div>
     <q-list style="font-size: 14px">
-      <a v-for="(item, key) in items" :key="key" :href="item.id">
-        <q-item dark clickable style="padding-left: 15px">
+      <a v-for="(item, key) in items" :key="key" :href="'#' + item.id">
+        <q-item
+          dark
+          clickable
+          style="padding-left: 15px"
+          :style="{
+            background: item.id === hash ? 'orange' : 'none',
+          }"
+        >
           <q-item-section avatar>
             <q-icon color="white" :name="item.icon" />
           </q-item-section>
@@ -51,7 +58,10 @@
 
     <div class="absolute-bottom full-width">
       <div class="full-width justify-center row">
-        <q-avatar flat color="dark" text-color="primary" icon="facebook" />
+        <a href="https://www.facebook.com/gabriel.kwan.50">
+          <q-avatar flat color="dark" text-color="primary" icon="facebook" />
+        </a>
+
         <a href="https://www.linkedin.com/in/gabriel-kwan-671916188">
           <q-avatar
             flat
@@ -61,6 +71,7 @@
           />
         </a>
       </div>
+      <br />
       <div class="full-width text-center" style="font-size: 11px">
         Gabriel kwan - 2021
         <!--©-->
@@ -70,7 +81,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue';
+import { defineComponent, computed, ref, onBeforeMount } from 'vue';
 import { usePlatform } from '../utils/usePlateform';
 
 export default defineComponent({
@@ -88,16 +99,24 @@ export default defineComponent({
       set: (val) => emit('update:modelValue', val),
     });
 
+    const hash = ref(location.hash.slice(1));
+
     const { platform } = usePlatform();
 
     const items = [
-      { icon: 'home', label: 'Accueil', id: '#home' },
-      { icon: 'perm_identity', label: 'Qui suis-je ?', id: '#moi' },
-      { icon: 'fas fa-id-card', label: 'C.V', id: '#CV' },
-      { icon: 'business_center', label: 'Portfolio', id: '#Portfolio' },
+      { icon: 'home', label: 'Accueil', id: 'home' },
+      { icon: 'fas fa-id-card', label: 'Experience', id: 'experience' },
+      { icon: 'business_center', label: 'Portfolio', id: 'Portfolio' },
     ];
 
-    return { drawer, platform, items };
+    onBeforeMount(() => {
+      location.hash = 'home';
+      window.onhashchange = () => {
+        hash.value = location.hash.slice(1);
+      };
+    });
+
+    return { drawer, platform, items, hash };
   },
 });
 </script>
