@@ -2,6 +2,7 @@
 :root {
   --text-multiplier: 1;
   --text-display: block;
+  --color-primary: $primary;
 }
 // fonts
 @font-face {
@@ -33,24 +34,24 @@
 }
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   :root {
-    --text-multiplier: 1.6;
+    --text-multiplier: 1.4;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 1125px) {
   :root {
-    --text-multiplier: 1.6;
+    --text-multiplier: 1.5;
   }
 }
 
 @media only screen and (min-width: 1126px) {
   :root {
-    --text-multiplier: 1.9;
+    --text-multiplier: 1.6;
   }
 }
 
 @media only screen and (min-width: 1600px) {
   :root {
-    --text-multiplier: 2;
+    --text-multiplier: 1.7;
   }
 }
 
@@ -154,4 +155,51 @@ html {
   //   transparent 75%,
   //   transparent
   // );
+}
+
+.typewrite-effect {
+  display: inline-block;
+
+  div {
+    overflow: hidden;
+    border-bottom: 0.15em solid $primary;
+    white-space: nowrap;
+    font-size: 1.6rem;
+    width: 0;
+    height: 30px;
+    line-height: 30px;
+    animation: typing 4s steps(20, end) infinite;
+    position: relative;
+    left: 70px;
+    top: -25px;
+    padding-right: 5px;
+  }
+  div::after {
+    content: '|';
+    animation: blink 1s steps(1, end) infinite;
+    position: absolute;
+    right: -2px;
+  }
+
+  @keyframes typing {
+    0%,
+    100% {
+      width: 0;
+      display: none;
+    }
+    35%,
+    65% {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
 }

@@ -63,7 +63,7 @@ export default defineComponent({
             Language: 'Javascript',
           },
           {
-            Framework: 'Quasar (VueJS)',
+            Framework: 'Ionic',
           },
           { Librairie: '_' },
           { date: 'Mai 2021' },

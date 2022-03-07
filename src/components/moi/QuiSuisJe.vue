@@ -5,10 +5,10 @@
         <div class="" style="padding-bottom: 20px">
           <div class="full-width">
             <h3 class="text-white text-weight-bold text-center">
-              Développeur & Freelanceur
+              Développeur & Freelancer
             </h3>
             <br />
-            Je suis KWAN Yannick Gabriel, developpeur web , mobile et web
+            Je suis KWAN Yannick Gabriel, développeur web , mobile et web
             designer
           </div>
         </div>
@@ -18,7 +18,7 @@
             class="text-white text-weight-bold text-center"
             style="margin-bottom: 20px; letter-spacing: 1px"
           >
-            Information personnel
+            Informations personnelles
           </h3>
           <p v-for="(info, key) in infoData" :key="key">
             <b class="underline">{{ info.key }}</b> :
@@ -30,7 +30,7 @@
             href="CV-gabriel.zip"
             download
           >
-            <q-btn color="primary" label="Télecharger mon C.V" no-caps />
+            <q-btn color="primary" label="Télécharger mon C.V" no-caps />
           </a>
         </div>
       </div>
@@ -53,7 +53,7 @@ export default defineComponent({
 
     const infoData = computed(() => [
       { key: 'Age', value: '&nbsp ' + age.value },
-      { key: 'Residence', value: '&nbsp Madagascar' },
+      { key: 'Résidence', value: '&nbsp Madagascar' },
       { key: 'Freelance', value: '&nbsp Disponible' },
       { key: 'Email', value: '&nbsp kwangabriel.gk@gmail.com' },
       { key: 'Phone', value: '&nbsp +261 32 67 341 55' },

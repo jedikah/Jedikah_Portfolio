@@ -33,7 +33,7 @@
       <template v-slot:control>
         <q-carousel-control
           class="full-height full-width text-white absolute row justify-center items-center"
-          style="background: #00000068; position: absolute; margin: 0"
+          style="background: #2e2e2eb8; position: absolute; margin: 0"
         >
           <div class="row full-width full-height justify-center items-center">
             <div
@@ -41,12 +41,19 @@
               style="margin: 50px"
             >
               <h1 class="full-width text-center">
-                Gabriel <span style="color: #e19f00">Kwan</span>
+                Gabriel <span class="text-primary">Kwan</span>
               </h1>
               <br />
-              <p style="font-size: 20px; line-height: 28px; text-align: center">
-                Je suis un <b>Développeur web fullstack</b> et <b>mobile</b>
-              </p>
+              <div style="width: 200px">
+                <div
+                  :class="{ 'typewrite-effect': typewrite }"
+                  style="font-size: 20px; text-align: start"
+                >
+                  Je suis
+                  <div>{{ currentWord }}</div>
+                  <!-- <span>Freelancer</span> -->
+                </div>
+              </div>
             </div>
             <Moi
               class="col-md-3 col-xs-8 q-mr-lg"
@@ -81,45 +88,45 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { useMeta, Meta } from 'quasar';
+import { defineComponent, ref, onMounted } from 'vue';
+// import { useMeta, Meta } from 'quasar';
 
-const accueilMeta: Meta = {
-  // sets document title
-  title: 'Profil Gabriel Kwan',
-  // optional; sets final title as "Index Page - My Website", useful for multiple level meta
-  titleTemplate: (title: any) => `${title} - C.V / Portfolio`,
+// const accueilMeta: Meta = {
+//   // sets document title
+//   title: 'Profil Gabriel Kwan',
+//   // optional; sets final title as "Index Page - My Website", useful for multiple level meta
+//   titleTemplate: (title: any) => `${title} - C.V / Portfolio`,
 
-  // meta tags
-  meta: {
-    description: {
-      name: 'developpeur web / mobile Gabriel Kwan',
-      content: `Gabriel Kwan...
-      Je suis un Développeur web fullstack et mobile... Qui suis-je ?
-      Développeur & Freelanceur... COMPÉTENCES: Front-end et back-end
-      `,
-    },
-    keywords: {
-      name: 'freelanceur c.v developpeur web mobile fullstack front-end back-end VueJs Quasar-Framework electron',
-      content: `Gabriel Kwan...
-      Je suis un Développeur web fullstack et mobile... Qui suis-je ?
-      Développeur & Freelanceur... COMPÉTENCES: Front-end et back-end
-      `,
-    },
-    equiv: {
-      'http-equiv': 'Content-Type',
-      content: 'text/html; charset=UTF-8',
-    },
-    // note: for Open Graph type metadata you will need to use SSR, to ensure page is rendered by the server
-    // ogTitle: {
-    //   property: 'og:title',
-    //   // optional; similar to titleTemplate, but allows templating with other meta properties
-    //   template(ogTitle: any) {
-    //     return `${ogTitle} - My Website`;
-    //   },
-    // },
-  },
-};
+//   // meta tags
+//   meta: {
+//     description: {
+//       name: 'developpeur web / mobile Gabriel Kwan',
+//       content: `Gabriel Kwan...
+//       Je suis un Développeur web fullstack et mobile... Qui suis-je ?
+//       Développeur & Freelanceur... COMPÉTENCES: Front-end et back-end
+//       `,
+//     },
+//     keywords: {
+//       name: 'freelanceur c.v developpeur web mobile fullstack front-end back-end VueJs Quasar-Framework electron',
+//       content: `Gabriel Kwan...
+//       Je suis un Développeur web fullstack et mobile... Qui suis-je ?
+//       Développeur & Freelanceur... COMPÉTENCES: Front-end et back-end
+//       `,
+//     },
+//     equiv: {
+//       'http-equiv': 'Content-Type',
+//       content: 'text/html; charset=UTF-8',
+//     },
+//     // note: for Open Graph type metadata you will need to use SSR, to ensure page is rendered by the server
+//     // ogTitle: {
+//     //   property: 'og:title',
+//     //   // optional; similar to titleTemplate, but allows templating with other meta properties
+//     //   template(ogTitle: any) {
+//     //     return `${ogTitle} - My Website`;
+//     //   },
+//     // },
+//   },
+// };
 
 export default defineComponent({
   name: 'Accueil',
@@ -127,10 +134,24 @@ export default defineComponent({
     Moi: require('../moi/QuiSuisJe.vue').default,
   },
   setup() {
-    useMeta(accueilMeta);
+    // useMeta(accueilMeta);
+
+    const words = ['Développeur', 'Freelancer', 'Designer'];
+    const currentWord = ref(words[0]);
+    const typewrite = ref(false);
+    onMounted(() => {
+      typewrite.value = true;
+      let i = 1;
+      setInterval(() => {
+        currentWord.value = words[i++];
+        if (i >= words.length) i = 0;
+      }, 4000);
+    });
     return {
       slide: ref(1),
       autoplay: ref(true),
+      currentWord,
+      typewrite,
     };
   },
 });

@@ -18,31 +18,38 @@
   </q-page>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue';
 import Accueil from '../components/accueil/Accueil.vue';
 import Experience from '../components/experience/Experience.vue';
 import Portfolio from '../components/portfolio/Portfolio.vue';
 import Services from '../components/myServices/MyService.vue';
 import Contact from '../components/contact/Contact.vue';
 
-const components = [
-  {
-    id: 'services',
-    title: 'Mes Services',
-    template: Services,
-    icon: 'design_services',
+export default defineComponent({
+  components: { Accueil },
+  setup() {
+    const components = [
+      {
+        id: 'services',
+        title: 'Mes Services',
+        template: Services,
+        icon: 'design_services',
+      },
+      {
+        id: 'experience',
+        title: 'Expériences & Formations',
+        template: Experience,
+        icon: 'far fa-id-badge',
+      },
+      {
+        id: 'Portfolio',
+        title: 'Mon portfolio',
+        template: Portfolio,
+        icon: 'business_center',
+      },
+    ];
+    return { components };
   },
-  {
-    id: 'experience',
-    title: 'Experience & Formation',
-    template: Experience,
-    icon: 'far fa-id-badge',
-  },
-  {
-    id: 'Portfolio',
-    title: 'Mon portfolio',
-    template: Portfolio,
-    icon: 'business_center',
-  },
-];
+});
 </script>

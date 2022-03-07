@@ -72,12 +72,22 @@ module.exports = configure(function (ctx) {
       chainWebpack(/* chain */) {
         //
       },
-      distDir: ctx.mode.spa ? 'dist/spa' : null,
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
-      https: false,
+      server: {
+        type: 'http', // NECESSARY (alternative is type 'http')
+
+        // options: {
+        //   // Use ABSOLUTE paths or path.join(__dirname, 'root/relative/path')
+        //   key: '/path/to/server.key',
+        //   pfx: '/path/to/server.pfx',
+        //   cert: '/path/to/server.crt',
+        //   ca: '/path/to/ca.pem',
+        //   passphrase: 'webpack-dev-server', // do you need it?
+        // },
+      },
       port: 8080,
       open: true, // opens browser window automatically
     },
@@ -97,7 +107,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Meta'],
+      plugins: [],
     },
 
     // animations: 'all', // --- includes all animations
@@ -106,7 +116,7 @@ module.exports = configure(function (ctx) {
 
     // https://v2.quasar.dev/quasar-cli/developing-ssr/configuring-ssr
     ssr: {
-      pwa: true, // should a PWA take over (default: false), or just a SPA?
+      pwa: false, // should a PWA take over (default: false), or just a SPA?
 
       manualStoreHydration: false,
       // Manually hydrate the store.

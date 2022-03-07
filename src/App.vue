@@ -2,18 +2,25 @@
   <router-view />
 </template>
 
-<script setup lang="ts">
-// const $q = useQuasar();
+<script lang="ts">
+import { defineComponent } from 'vue';
 
-// get status
-// console.log($q.dark.isActive); // true, false
+export default defineComponent({
+  setup() {
+    // const $q = useQuasar();
 
-// // get configured status
-// console.log($q.dark.mode); // "auto", true, false
+    // get status
+    // console.log($q.dark.isActive); // true, false
 
-// set status
-// $q.dark.set(true); // or false or "auto"
+    // // get configured status
+    // console.log($q.dark.mode); // "auto", true, false
 
-// toggle
-// $q.dark.toggle();
+    // set status
+    // $q.dark.set(true); // or false or "auto"
+
+    // toggle
+    // $q.dark.toggle();
+    return {};
+  },
+});
 </script>

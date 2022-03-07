@@ -39,6 +39,21 @@
             :name="n"
             :img-src="`portfolio/${src_name}/${n}.jpg`"
           />
+
+          <template v-slot:control>
+            <q-carousel-control position="bottom-right" :offset="[18, 18]">
+              <q-btn
+                v-if="fullscreen"
+                push
+                round
+                dense
+                color="white"
+                text-color="primary"
+                :icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'"
+                @click="fullscreen = !fullscreen"
+              />
+            </q-carousel-control>
+          </template>
         </q-carousel>
       </div>
     </template>

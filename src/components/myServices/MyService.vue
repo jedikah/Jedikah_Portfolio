@@ -1,6 +1,4 @@
 <template>
-  <q-space style="width: 0; height: 50px" />
-
   <q-card-section class="row">
     <div class="full-width row justify-center">
       <div class="row justify-center items-center q-pa-lg col-sm-4 col-xs-12">
@@ -21,4 +19,12 @@
   </q-card-section>
 </template>
 
-<script setup lang="ts"></script>
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  setup() {
+    return;
+  },
+});
+</script>

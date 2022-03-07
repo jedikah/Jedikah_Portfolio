@@ -20,7 +20,7 @@
 
       <q-timeline color="secondary" class="col-sm-6 col-xs-12">
         <q-timeline-entry heading>
-          <span class="underline">EXPERIENCES PROFESSIONNELLE</span>
+          <span class="underline">EXPERIENCES PROFESSIONNELLES</span>
         </q-timeline-entry>
 
         <q-timeline-entry
@@ -130,7 +130,7 @@ export default defineComponent({
         title: 'INTEGRATEUR Wordpress, Groupe Global World ',
         subtitle: 'Octobre 2020',
         description:
-          'Integration d’une maquette en Wordpress un site de presentation.',
+          'Intégration d’une maquette en Wordpress un site de presentation.',
       },
       {
         title: 'PROGRAMMEUR FRONT-END, Stage FOFIFA Madagascar',
