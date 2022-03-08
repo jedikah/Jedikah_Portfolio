@@ -2,8 +2,8 @@
   "name": "test3",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Quasar App",
-  "author": "Jedikah <jekjedika@gmail.com>",
+  "productName": "AfterDev",
+  "author": "Kwan Yannick Gabriel <jekjedika@gmail.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",

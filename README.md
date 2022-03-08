@@ -1,4 +1,4 @@
-# Quasar App (test3)
+# Quasar App (AfterDev)
 
 A Quasar Framework app
 

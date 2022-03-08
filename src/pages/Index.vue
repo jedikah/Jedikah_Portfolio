@@ -1,6 +1,6 @@
 <template>
-  <q-page class="row justify-evenly" style="height: 100vh">
-    <Accueil id="home" />
+  <q-page class="row justify-evenly">
+    <Accueil id="home" @mouseenter="href('home')" />
 
     <SectionCard
       v-for="(component, key) in components"
@@ -8,6 +8,7 @@
       :id="component.id"
       :title="component.title"
       :icon="component.icon"
+      @mouseenter="href(component.id)"
     >
       <template #section>
         <component :is="component.template" />
@@ -49,7 +50,12 @@ export default defineComponent({
         icon: 'business_center',
       },
     ];
-    return { components };
+
+    function href(id: string) {
+      location.href = '#' + id;
+    }
+
+    return { components, href };
   },
 });
 </script>

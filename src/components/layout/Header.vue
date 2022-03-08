@@ -56,14 +56,9 @@ export default defineComponent({
       { icon: 'business_center', label: 'Portfolio', id: 'Portfolio' },
     ];
 
-    const router = useRouter();
     const route = useRoute();
 
     onBeforeMount(() => {
-      void router.push({ hash: '#home' }).then(() => {
-        tab.value = route.hash.slice(1);
-      });
-
       window.onhashchange = () => {
         tab.value = route.hash.slice(1);
       };
@@ -72,9 +67,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style lang="scss">
-a {
-  text-decoration: none;
-}
-</style>
