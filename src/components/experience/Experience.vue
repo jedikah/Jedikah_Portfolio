@@ -34,58 +34,6 @@
         />
       </q-timeline>
     </div>
-
-    <div class="full-width row justify-center q-pa-sm q-pa-lg">
-      <h3 class="text-white">
-        <span class="underline">COMPÉTENCES</span>
-      </h3>
-    </div>
-    <div class="full-width row justify-center" style="margin-top: 30px">
-      <h3 class="text-white full-width text-center">
-        <span>FRONT-END</span>
-      </h3>
-    </div>
-
-    <div class="full-width row justify-center q-col-gutter-lg">
-      <Progress
-        v-for="(front, key) in competenceFront"
-        :key="key"
-        :title="front.title"
-        :label="front.label"
-        :value="front.value"
-      />
-    </div>
-
-    <div class="full-width row justify-center" style="margin-top: 30px">
-      <h3 class="text-white full-width text-center">
-        <span>BACK-END</span>
-      </h3>
-    </div>
-
-    <div class="full-width row justify-center q-col-gutter-lg">
-      <Progress
-        v-for="(back, key) in competenceBack"
-        :key="key"
-        :title="back.title"
-        :label="back.label"
-        :value="back.value"
-      />
-    </div>
-
-    <div class="full-width row justify-center" style="margin-top: 30px">
-      <h3 class="text-white full-width text-center">
-        <span>Systeme de version</span>
-      </h3>
-    </div>
-
-    <div class="full-width row justify-center q-col-gutter-lg">
-      <Progress
-        title="Git"
-        :label="competenceLabel.git"
-        :value="competence.git"
-        class="full-width"
-      />
-    </div>
   </div>
 </template>
 
@@ -94,9 +42,7 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'Cv',
-  components: {
-    Progress: require('./Progress.vue').default,
-  },
+  components: {},
   setup() {
     const formations = [
       {
@@ -157,80 +103,9 @@ Back end:  NestJs (graphql et Apollo server)
       },
     ];
 
-    const competence = {
-      html5: 0.78,
-      CSS3: 0.69,
-      javascript: 0.67,
-      vueJs: 0.85,
-      reactJs: 0.52,
-      expressJs: 0.85,
-      nestJs: 0.88,
-      git: 0.65,
-      c: 0.5,
-      java: 0.45,
-    };
-
-    const competenceLabel = {
-      html5: (competence.html5 * 100).toFixed(2) + ' %',
-      CSS3: (competence.CSS3 * 100).toFixed(2) + ' %',
-      javascript: (competence.javascript * 100).toFixed(2) + ' %',
-      vueJs: (competence.vueJs * 100).toFixed(2) + ' %',
-      reactJs: (competence.reactJs * 100).toFixed(2) + ' %',
-      expressJs: (competence.expressJs * 100).toFixed(2) + ' %',
-      nestJs: (competence.nestJs * 100).toFixed(2) + ' %',
-      git: (competence.git * 100).toFixed(2) + ' %',
-      c: (competence.c * 100).toFixed(2) + ' %',
-      java: (competence.java * 100).toFixed(2) + ' %',
-    };
-
-    const competenceFront = [
-      {
-        title: 'HTML5',
-        label: (competence.html5 * 100).toFixed(2) + ' %',
-        value: competence.html5,
-      },
-      {
-        title: 'CSS3',
-        label: (competence.CSS3 * 100).toFixed(2) + ' %',
-        value: competence.CSS3,
-      },
-      {
-        title: 'Javascript',
-        label: (competence.javascript * 100).toFixed(2) + ' %',
-        value: competence.javascript,
-      },
-      {
-        title: 'VueJs',
-        label: (competence.vueJs * 100).toFixed(2) + ' %',
-        value: competence.vueJs,
-      },
-      {
-        title: 'ReactJs',
-        label: (competence.reactJs * 100).toFixed(2) + ' %',
-        value: competence.reactJs,
-      },
-    ];
-
-    const competenceBack = [
-      {
-        title: 'ExpressJs',
-        label: (competence.expressJs * 100).toFixed(2) + ' %',
-        value: competence.expressJs,
-      },
-      {
-        title: 'NestJs',
-        label: (competence.nestJs * 100).toFixed(2) + ' %',
-        value: competence.nestJs,
-      },
-    ];
-
     return {
       formations,
       experiences,
-      competence,
-      competenceLabel,
-      competenceFront,
-      competenceBack,
     };
   },
 });

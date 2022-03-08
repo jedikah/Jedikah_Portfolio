@@ -56,27 +56,12 @@
         </div>
       </div>
     </div>
-    <q-list>
-      <a v-for="(item, key) in items" :key="key" :href="'#' + item.id">
-        <q-item
-          dark
-          clickable
-          :class="{ 'text-white': item.id === hash }"
-          style="padding-left: 15px; color: grey"
-        >
-          <q-item-section avatar>
-            <q-icon
-              :class="{ 'text-primary': item.id === hash }"
-              :name="item.icon"
-            />
-          </q-item-section>
 
-          <q-item-section class="no-margin">{{ item.label }}</q-item-section>
-        </q-item>
+    <q-separator dark class="q-mt-md q-mb-md" />
 
-        <q-separator dark />
-      </a>
-    </q-list>
+    <q-scroll-area style="height: calc(100% - 300px)">
+      <Competence style="padding: 0 15px" />
+    </q-scroll-area>
 
     <div class="absolute-bottom full-width">
       <div class="full-width text-center" style="font-size: 11px">
@@ -88,12 +73,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed, ref, onBeforeMount } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { defineComponent, computed, ref } from 'vue';
 import { usePlatform } from '../utils/usePlateform';
+import Competence from '../competence/Competence.vue';
 
 export default defineComponent({
   name: 'Drawer',
+  components: { Competence },
   props: {
     modelValue: {
       type: Boolean,
@@ -102,41 +88,21 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    const router = useRouter();
-    const route = useRoute();
     const drawer = computed({
       get: () => props.modelValue,
       set: (val) => emit('update:modelValue', val),
     });
 
-    const hash = ref(route.hash.slice(1));
-
     const { platform } = usePlatform();
 
     const items = [
       { icon: 'home', label: 'Accueil', id: 'home' },
+      { icon: 'design_services', label: 'Mes services', id: 'services' },
       { icon: 'fas fa-id-card', label: 'Expériences', id: 'experience' },
       { icon: 'business_center', label: 'Portfolio', id: 'Portfolio' },
     ];
 
-    onBeforeMount(() => {
-      void router.push({ hash: '#home' }).then(() => {
-        hash.value = route.hash.slice(1);
-      });
-      // console.log(router.currentRoute.value);
-
-      window.onhashchange = () => {
-        hash.value = route.hash.slice(1);
-      };
-    });
-
-    return { drawer, platform, items, hash };
+    return { drawer, platform, items };
   },
 });
 </script>
-
-<style lang="scss" scoped>
-a {
-  text-decoration: none;
-}
-</style>

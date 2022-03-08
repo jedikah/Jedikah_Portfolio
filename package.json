@@ -1,35 +1,33 @@
 {
-  "name": "portfolio",
+  "name": "test3",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Protfolio",
-  "author": "Gabriel_Kwan <jekjedika@gmail.com>",
+  "productName": "Quasar App",
+  "author": "Jedikah <jekjedika@gmail.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
-    "test": "echo \"No test specified\" && exit 0",
-    "build": "quasar build",
-    "deploy-surge": "surge dist/spa portfolio-gabrielkwan.surge.sh",
-    "deploy": "push-dir --dir=dist/spa --remote=gh-pages --branch=master"
+    "format": "prettier --write \"**/*.{js,ts,vue,scss,html,md,json}\" --ignore-path .gitignore",
+    "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.12.5",
+    "@quasar/extras": "^1.0.0",
     "core-js": "^3.6.5",
-    "quasar": "^2.5.5",
-    "vue-i18n": "^9.0.0-beta.0"
+    "quasar": "^2.0.0",
+    "vue": "^3.0.0",
+    "vue-i18n": "^9.0.0",
+    "vue-router": "^4.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
-    "@quasar/app": "^3.3.3",
-    "@types/compression": "^1.7.2",
-    "@types/node": "^10.17.15",
-    "@typescript-eslint/eslint-plugin": "^4.16.1",
-    "@typescript-eslint/parser": "^4.16.1",
+    "@quasar/app": "^3.0.0",
+    "@types/node": "^12.20.21",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-vue": "^7.0.0",
-    "push-dir": "^0.4.1",
-    "workbox-webpack-plugin": "^6.0.0"
+    "prettier": "^2.5.1"
   },
   "browserslist": [
     "last 10 Chrome versions",
@@ -43,7 +41,7 @@
     "last 5 Opera versions"
   ],
   "engines": {
-    "node": ">= 10.18.1",
+    "node": ">= 12.22.1",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
   }
