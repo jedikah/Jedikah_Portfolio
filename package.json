@@ -10,17 +10,20 @@
     "test": "echo \"No test specified\" && exit 0",
     "build": "quasar build",
     "deploy": "surge dist/spa portfolio-gabrielkwan.surge.sh",
-    "deploy-git": "push-dir --dir=dist/spa --remote=gh-pages --branch=master"
+    "deploy-git": "push-dir --dir=dist/spa --remote=gh-pages --branch=master",
+    "deploy-vercel": "vercel ./dist/spa"
   },
   "dependencies": {
-    "@quasar/extras": "^1.11.2",
+    "@quasar/extras": "^1.16.6",
     "core-js": "^3.6.5",
-    "quasar": "^2.1.9",
-    "vue-i18n": "^9.0.0-beta.0"
+    "quasar": "^2.12.7",
+    "vue": "^3.0.0",
+    "vue-i18n": "^9.0.0-beta.0",
+    "vue-router": "^4.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.13.14",
-    "@quasar/app": "^3.1.5",
+    "@quasar/app-webpack": "^3.11.2",
     "@types/node": "^10.17.15",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
