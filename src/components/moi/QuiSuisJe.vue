@@ -90,10 +90,10 @@ export default defineComponent({
           '&nbsp Yannick <span style="border-bottom: 1px solid white">Gabriel</span>',
       },
       { key: 'Age', value: '&nbsp ' + age.value },
-      { key: 'Adresse', value: '&nbsp Lot IB01 / 3611 Tanambao Fianarantsoa' },
-      { key: 'Ville', value: '&nbsp Fianarantsoa' },
+      { key: 'Adresse', value: '&nbsp Bemasoandro Itaosy' },
+      { key: 'Ville', value: '&nbsp Antananarivo' },
       { key: 'Pays', value: '&nbsp Madagascar' },
-      { key: 'Email', value: '&nbsp kwangabriel.gk@gmail.com' },
+      { key: 'Email', value: '&nbsp gabrielkwan.kg@gmail.com' },
       { key: 'Phone', value: '&nbsp +261 32 67 341 55' },
     ]);
     return {

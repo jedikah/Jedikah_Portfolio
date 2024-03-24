@@ -28,16 +28,19 @@
         </h1>
         <br />
         <p style="font-size: 20px; line-height: 28px; text-align: center">
-          Je suis un <b>Développeur web fullstack</b> et <b>mobile</b>
+          <b>Développeur web fullstack</b> et <b>mobile</b>
         </p>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent, ref } from 'vue';
 import { useMeta, Meta } from 'quasar';
+
+const slide = ref(1);
+const autoplay = ref(true);
 
 const accueilMeta: Meta = {
   // sets document title
@@ -50,7 +53,7 @@ const accueilMeta: Meta = {
     description: {
       name: 'developpeur web / mobile Gabriel Kwan',
       content: `Gabriel Kwan...
-      Je suis un Développeur web fullstack et mobile... Qui suis-je ?
+      Développeur web fullstack et mobile... Qui suis-je ?
       Développeur & Freelanceur... COMPÉTENCES: Front-end et back-end
       `,
     },
@@ -66,25 +69,9 @@ const accueilMeta: Meta = {
       'http-equiv': 'Content-Type',
       content: 'text/html; charset=UTF-8',
     },
-    // note: for Open Graph type metadata you will need to use SSR, to ensure page is rendered by the server
-    // ogTitle: {
-    //   property: 'og:title',
-    //   // optional; similar to titleTemplate, but allows templating with other meta properties
-    //   template(ogTitle: any) {
-    //     return `${ogTitle} - My Website`;
-    //   },
-    // },
   },
 };
 
-export default defineComponent({
-  name: 'Accueil',
-  setup() {
-    useMeta(accueilMeta);
-    return {
-      slide: ref(1),
-      autoplay: ref(true),
-    };
-  },
-});
+useMeta(accueilMeta);
+
 </script>

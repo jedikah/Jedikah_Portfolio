@@ -28,6 +28,7 @@
               :src_name="selected.src_name"
               :caracteristics="selected.caracteristics"
               :descriptions="selected.descriptions"
+              :landscape="selected.landscape"
             />
           </div>
         </template>
@@ -36,18 +37,14 @@
   </Card>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent, ref } from 'vue';
+import Card from '../utils/Card.vue';
+import DetailsProjectBanner from './DetailsProjectBanner.vue';
+import DetailsProjectContent from './DetailsProjectContent.vue';
 
-export default defineComponent({
-  components: {
-    Card: require('../utils/Card.vue').default,
-    DetailsProjectBanner: require('./DetailsProjectBanner.vue').default,
-    DetailsProjectContent: require('./DetailsProjectContent.vue').default,
-  },
-  setup() {
-    const switchName = ref('panel_1');
-    const selected = ref(null);
+const switchName = ref('panel_1');
+    const selected = ref<any>(null);
 
     const detailsProjects = [
       {
@@ -55,12 +52,13 @@ export default defineComponent({
         label: 'ACE',
         src_name: 'ACE',
         carousel_length: 10,
+        landscape: false,
         caracteristics: [
           {
             Language: 'Javascript',
           },
           {
-            Framework: 'Quasar (VueJS)',
+            Framework: 'Ionic',
           },
           { Librairie: '_' },
           { date: 'Mai 2021' },
@@ -71,13 +69,23 @@ export default defineComponent({
         qui ont été réellement écrits. Permet de prendre des notes et décrire un personnage. Elle met aussi
         en relation différent écrivains.​`,
       },
+      {
+        row: 2,
+        label: 'KStore',
+        src_name: 'KStore',
+        carousel_length: 2,
+        landscape: true,
+        caracteristics: [
+          {
+            Language: 'Javascript',
+          },
+          {
+            Framework: 'Quasar Framework (Vuejs)',
+          },
+          { Librairie: '_' },
+          { date: 'Septembre 2023 - maintenant' },
+        ],
+        descriptions: 'Une plateforme de gestion de points de vente',
+      },
     ];
-
-    function selectedProject(selected: number) {
-      return detailsProjects.filter((dp) => dp.row === selected);
-    }
-
-    return { switchName, detailsProjects, selected, selectedProject };
-  },
-});
 </script>

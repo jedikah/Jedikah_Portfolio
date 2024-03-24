@@ -1,7 +1,6 @@
 <template>
   <q-splitter
     v-model="splitterModel"
-    :limits="[220, 570]"
     unit="px"
     style="height: 540px"
   >
@@ -65,25 +64,21 @@
   </q-splitter>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent, ref } from 'vue';
 
-export default defineComponent({
-  name: 'DetailsProjectContent',
-  props: {
-    carousel_length: Number,
-    src_name: String,
-    caracteristics: Array,
-    descriptions: String,
-  },
-  setup() {
-    const slide = ref(1);
-    const splitterModel = ref(220);
-    const insideModel = ref(50);
+const props = defineProps<{
+  carousel_length: number;
+  src_name: string;
+  caracteristics: any[];
+  descriptions: string;
+  landscape: boolean;
+}>()
 
-    return { slide, splitterModel, insideModel };
-  },
-});
+const slide = ref(1);
+const splitterModel = ref(props.landscape ? 750 : 220);
+const insideModel = ref(50);
+
 </script>
 
 <style lang="scss">
