@@ -18,14 +18,9 @@
             <span class="underline">EXPERIENCES PROFESSIONNELLE</span>
           </q-timeline-entry>
 
-          <q-timeline-entry 
-            v-for="(experience, key) in experiences" 
-            :key="key" :title="experience.title"
-            :subtitle="experience.subtitle"
-            :body="(experience.description as any)"
-            color="primary" 
-            icon="fas fa-calendar-day"
-          />
+          <q-timeline-entry v-for="(experience, key) in experiences" :key="key" :title="experience.title"
+            :subtitle="experience.subtitle" :body="(experience.description as any)" color="primary"
+            icon="fas fa-calendar-day" />
         </q-timeline>
       </div>
     </template>
@@ -97,36 +92,37 @@ const formations = [
 
 const experiences = [
   {
+    title: 'Freelance - freelance',
+    subtitle: 'Diactiv+ | Decembre 2023 - maintenant',
+    description: h(
+      'div',
+      {
+        style: 'white-space:pre',
+        innerHTML:
+          `Mission:
+    ¤ Gérer une équipe composée de développeur, devOps
+    ¤ Accompagner l’équipe pour la conception et réalisation d’une application mobile et une application web
+    ¤ Développement et maintenance d'interfaces utilisateur avec Vue.js et Quasar Framework.
+Environnement techniques:
+    ¤ React Native - quasar Framework (vue js)
+`
+      }),
+  },
+  {
     title: 'Développeur web - freelance',
     subtitle: 'KAWA Group| Decembre 2023 - maintenant',
     description: h(
       'div',
       {
         style: 'white-space:pre',
-        innerHTML: 
-`Mission:
-    ¤ Participation aux développements frontend. 
+        innerHTML:
+          `Mission:
+    ¤ Participation aux développements frontend.
     ¤ Intégration de maquette.
 Environnement techniques:
     ¤ Git, Nextjs
 `
       }),
-  },
-  {
-    title: 'WordPress - freelance',
-    subtitle: 'RassVoyages| Decembre 2023 - Janvier 2024',
-    description: h(
-      'div',
-      {
-        style: 'white-space:pre',
-        innerHTML: 
-`Mission:
-      ¤ Mise en place du site wordpress. 
-      ¤ Intégration du mode payement.
-Environnement techniques:
-      ¤ Wordpress, wooCommerce, Cybersource`
-      }
-    ),
   },
   {
     title: 'Développeur web ',
@@ -135,8 +131,8 @@ Environnement techniques:
       'div',
       {
         style: 'white-space:pre',
-        innerHTML: 
-`Mission:
+        innerHTML:
+          `Mission:
       ¤ Participation aux développements frontend.
       ¤ Participation aux développements backend.
       ¤ Implémentation de système géographique et horodatage
@@ -154,9 +150,9 @@ Environnement techniques:
       'div',
       {
         style: 'white-space:pre',
-        innerHTML: 
-`Mission:
-      ¤ Conception et réalisation d’une application une d’écriture 
+        innerHTML:
+          `Mission:
+      ¤ Conception et réalisation d’une application une d’écriture
         qui permet aux écrivains de planifier leurs séances d’écriture.
       ¤ Intégration de maquette
 Environnement technique:
@@ -164,7 +160,6 @@ Environnement technique:
       }
     ),
   },
-
 ];
 
 const competence = {
@@ -173,7 +168,7 @@ const competence = {
   vueJs: 0.85,
   angular: 0.55,
   reactJs: 0.72,
-  flutter: 0.2,
+  flutter: 0.4,
   expressJs: 0.85,
   nestJs: 0.88,
   git: 0.65,
