@@ -1,36 +1,21 @@
 <template>
-  <q-drawer
-    v-model="drawer"
-    :width="platform == 'sm' || platform == 'md' ? 170 : 200"
-    show-if-above
-    bordered
-    class="bg-dark overflow-hidden"
-    dark
-    side="left"
-    :breakpoint="599"
-  >
+  <q-drawer v-model="drawer" :width="platform == 'sm' || platform == 'md' ? 170 : 200" show-if-above bordered
+    class="bg-dark overflow-hidden" dark side="left" :breakpoint="599">
     <div class="relative-position">
       <div class="full-height full-width">
         <q-avatar square size="200px" class="q-mb-sm">
           <img style="height: 210px" src="profil.jpg" />
         </q-avatar>
       </div>
-      <div
-        class="absolute-bottom text-white text-center text-bold"
-        style="bottom: 8px"
-      >
-        <h2
-          class="text-uppercase"
-          style="
+      <div class="absolute-bottom text-white text-center text-bold" style="bottom: 8px">
+        <h2 class="text-uppercase bg-primary" style="
             text-shadow: rgba(0, 0, 0, 0.5) 0px 2px 10px;
             z-index: 1;
             font-size: 18px;
-            background: #e19f00c4;
-            line-height: 30px
+            line-height: 30px;
             font-weight: 600;
             letter-spacing: 1.5px;
-          "
-        >
+          ">
           Gabriel KWAN
         </h2>
       </div>
@@ -53,12 +38,7 @@
       <div class="full-width justify-center row">
         <q-avatar flat color="dark" text-color="primary" icon="facebook" />
         <a href="https://www.linkedin.com/in/gabriel-kwan-671916188">
-          <q-avatar
-            flat
-            color="dark"
-            text-color="primary"
-            icon="fab fa-linkedin"
-          />
+          <q-avatar flat color="dark" text-color="primary" icon="fab fa-linkedin" />
         </a>
       </div>
       <div class="full-width text-center" style="font-size: 11px">
