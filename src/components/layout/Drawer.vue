@@ -36,12 +36,14 @@
 
     <div class="absolute-bottom full-width">
       <div class="full-width justify-center row">
-        <a href="https://www.facebook.com/profile.php?id=61561025909355">
-          <q-avatar flat color="dark" text-color="primary" icon="facebook" />
-        </a>
-        <a href="www.linkedin.com/in/gabriel-kwan-46208034b">
-          <q-avatar flat color="dark" text-color="primary" icon="fab fa-linkedin" />
-        </a>
+        <div>
+          <q-btn flat round color="dark" text-color="primary" icon="facebook"
+            href="https://www.facebook.com/profile.php?id=61561025909355" target="_blank" rel="noopener noreferrer" />
+        </div>
+        <div>
+          <q-btn flat round color="dark" text-color="primary" icon="fab fa-linkedin"
+            href="https://www.linkedin.com/in/gabriel-kwan-46208034b" target="_blank" rel="noopener noreferrer" />
+        </div>
       </div>
       <div class="full-width text-center" style="font-size: 11px">
         Gabriel kwan - 2024
