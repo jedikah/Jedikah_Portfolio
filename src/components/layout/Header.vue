@@ -1,14 +1,7 @@
 <template>
-  <q-header style="background: #00000038">
+  <q-header class=" full-width" style="background: #00000038">
     <q-toolbar>
-      <q-btn
-        flat
-        dense
-        round
-        icon="menu"
-        aria-label="Menu"
-        @click="$emit('menuClick')"
-      />
+      <q-btn flat dense round icon="menu" aria-label="Menu" @click="$emit('menuClick')" />
 
       <q-toolbar-title class="text-uppercase text-center">
         Gabriel Kwan

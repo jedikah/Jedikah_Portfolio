@@ -1,9 +1,5 @@
 <template>
-  <q-splitter
-    v-model="splitterModel"
-    unit="px"
-    style="height: 540px"
-  >
+  <q-splitter v-model="splitterModel" unit="px" style="height: 540px">
     <template v-slot:before>
       <div class="q-pa-md portfolio-carousel">
         <q-item-label class="text-center">
@@ -12,13 +8,9 @@
 
         <br />
 
-        <q-carousel swipeable animated v-model="slide" thumbnails infinite>
-          <q-carousel-slide
-            v-for="n in carousel_length"
-            :key="n"
-            :name="n"
-            :img-src="`portfolio/${src_name}/${n}.jpg`"
-          />
+        <q-carousel swipeable animated v-model="slide" v-model:fullscreen="fullscreen" thumbnails infinite>
+          <q-carousel-slide v-for="n in carousel_length" :key="n" :name="n"
+            :img-src="`portfolio/${src_name}/${n}.jpg`" />
         </q-carousel>
       </div>
     </template>
@@ -42,8 +34,7 @@
                 :
                 {{
                   caracteristics[key][Object.keys(caracteristics[key])[0]]
-                }}</span
-              >
+                }}</span>
             </p>
           </div>
         </template>
@@ -59,6 +50,11 @@
             </div>
           </div>
         </template>
+
+        <!-- <q-carousel-control position="bottom-right" :offset="[18, 18]">
+          <q-btn push round dense color="white" text-color="primary"
+            :icon="fullscreen ? 'fullscreen_exit' : 'fullscreen'" @click="fullscreen = !fullscreen" />
+        </q-carousel-control> -->
       </q-splitter>
     </template>
   </q-splitter>
@@ -78,15 +74,16 @@ const props = defineProps<{
 const slide = ref(1);
 const splitterModel = ref(props.landscape ? 750 : 220);
 const insideModel = ref(50);
+const fullscreen = ref(false)
 
 </script>
 
 <style lang="scss">
-.portfolio-carousel > div > .q-carousel__control {
+.portfolio-carousel>div>.q-carousel__control {
   bottom: -80px;
 }
 
-.portfolio-carousel > .q-carousel {
+.portfolio-carousel>.q-carousel {
   overflow: unset;
 }
 </style>

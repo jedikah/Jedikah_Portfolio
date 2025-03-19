@@ -1,7 +1,7 @@
 <template>
   <Card title="Mon C.V" icon="far fa-id-badge">
     <template v-slot:section>
-      <div class="row">
+      <div class="row full-width">
         <q-timeline color="secondary" class="col-sm-6 col-xs-12">
           <q-timeline-entry heading>
             <span class="underline">FORMATIONS</span>
@@ -92,12 +92,28 @@ const formations = [
 
 const experiences = [
   {
+    title: 'Développeur  Fullstack – Lead dev',
+    subtitle: 'ForasTech | Decembre 2022 - maintenant',
+    description: h(
+      'div',
+      {
+        style: 'white-space:break-spaces',
+        innerHTML:
+          `Mission:
+    ¤ Développer une plateforme de mise en relation entre des projet de construction et spécialiste
+
+Environnement techniques:
+    ¤ NextJs – Elasticsearch – VueJs
+`
+      }),
+  },
+  {
     title: 'Freelance - freelance',
     subtitle: 'Diactiv+ | Decembre 2023 - maintenant',
     description: h(
       'div',
       {
-        style: 'white-space:pre',
+        style: 'white-space:break-spaces',
         innerHTML:
           `Mission:
     ¤ Gérer une équipe composée de développeur, devOps
@@ -114,7 +130,7 @@ Environnement techniques:
     description: h(
       'div',
       {
-        style: 'white-space:pre',
+        style: 'white-space:break-spaces',
         innerHTML:
           `Mission:
     ¤ Participation aux développements frontend.
@@ -130,7 +146,7 @@ Environnement techniques:
     description: h(
       'div',
       {
-        style: 'white-space:pre',
+        style: 'white-space:break-spaces',
         innerHTML:
           `Mission:
       ¤ Participation aux développements frontend.
@@ -149,7 +165,7 @@ Environnement techniques:
     description: h(
       'div',
       {
-        style: 'white-space:pre',
+        style: 'white-space:break-spaces',
         innerHTML:
           `Mission:
       ¤ Conception et réalisation d’une application une d’écriture
@@ -168,7 +184,7 @@ const competence = {
   vueJs: 0.85,
   angular: 0.55,
   reactJs: 0.72,
-  flutter: 0.4,
+  elasticsearch: 0.75,
   expressJs: 0.85,
   nestJs: 0.88,
   git: 0.65,
@@ -202,9 +218,9 @@ const competenceFront = [
     value: competence.reactJs,
   },
   {
-    title: 'Flutter',
-    label: (competence.flutter * 100).toFixed(2) + ' %',
-    value: competence.flutter,
+    title: 'Elasticsearch',
+    label: (competence.elasticsearch * 100).toFixed(2) + ' %',
+    value: competence.elasticsearch,
   },
 ];
 
