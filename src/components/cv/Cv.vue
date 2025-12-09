@@ -18,9 +18,13 @@
             <span class="underline">EXPERIENCES PROFESSIONNELLE</span>
           </q-timeline-entry>
 
-          <q-timeline-entry v-for="(experience, key) in experiences" :key="key" :title="experience.title"
-            :subtitle="experience.subtitle" :body="(experience.description as any)" color="primary"
-            icon="fas fa-calendar-day" />
+          <q-timeline-entry v-for="(experience, key) in experiences" :key="key" :title="experience.role"
+            :subtitle="experience.company + ' | ' + experience.period" :body="(experience.description as any)" color="primary"
+            icon="fas fa-calendar-day">
+            <div v-if="experience.technologies" class="tech-chip">
+              Technologies: {{ experience.technologies }}
+            </div>
+          </q-timeline-entry>
         </q-timeline>
       </div>
     </template>
@@ -91,91 +95,60 @@ const formations = [
 ];
 
 const experiences = [
-  {
-    title: 'Développeur  Fullstack – Lead dev',
-    subtitle: 'ForasTech | Decembre 2022 - maintenant',
-    description: h(
-      'div',
-      {
-        style: 'white-space:break-spaces',
-        innerHTML:
-          `Mission:
-    ¤ Développer une plateforme de mise en relation entre des projet de construction et spécialiste
-
-Environnement techniques:
-    ¤ NextJs – Elasticsearch – VueJs
-`
-      }),
+ {
+    company: 'Diactive+',
+    role: 'Chef de projet',
+    period: 'Août 2024 – Décembre 2024',
+    technologies: 'React Native • Quasar (Vue)',
+    description: "Gestion d'équipe, accompagnement à la conception et réalisation d'applications mobile et web, développement et maintenance d'interfaces utilisateur.",
+    enabled: true,
+    link: ''
   },
   {
-    title: 'Freelance - freelance',
-    subtitle: 'Diactiv+ | Decembre 2023 - maintenant',
-    description: h(
-      'div',
-      {
-        style: 'white-space:break-spaces',
-        innerHTML:
-          `Mission:
-    ¤ Gérer une équipe composée de développeur, devOps
-    ¤ Accompagner l’équipe pour la conception et réalisation d’une application mobile et une application web
-    ¤ Développement et maintenance d'interfaces utilisateur avec Vue.js et Quasar Framework.
-Environnement techniques:
-    ¤ React Native - quasar Framework (vue js)
-`
-      }),
+    company: 'Hello Archi',
+    role: 'Développeur / Lead Dev',
+    period: "Décembre 2023 – Aujourd'hui",
+    technologies: 'Next.js • Express',
+    description: "Intégration de nouvelles fonctionnalités, restructuration du codebase, gestion d'une équipe composée de développeurs, DevOps et admin sys.",
+    enabled: true,
+    link: 'https://hello-archi.com'
   },
   {
-    title: 'Développeur web - freelance',
-    subtitle: 'KAWA Group| Decembre 2023 - maintenant',
-    description: h(
-      'div',
-      {
-        style: 'white-space:break-spaces',
-        innerHTML:
-          `Mission:
-    ¤ Participation aux développements frontend.
-    ¤ Intégration de maquette.
-Environnement techniques:
-    ¤ Git, Nextjs
-`
-      }),
+    company: 'Relia Consulting',
+    role: 'Développeur Web',
+    period: 'Janvier 2022 – Novembre 2023',
+    technologies: 'Angular • Laravel • MySQL',
+    description: 'Participations aux développements frontend et backend, intégration de maquettes. Environnements : Git, Angular, Laravel, MySQL, Meilisearch, ElasticSearch.',
+    enabled: true,
+    link: ''
   },
   {
-    title: 'Développeur web ',
-    subtitle: 'Relia Consulting | Mars 2022 - Septembre 2023',
-    description: h(
-      'div',
-      {
-        style: 'white-space:break-spaces',
-        innerHTML:
-          `Mission:
-      ¤ Participation aux développements frontend.
-      ¤ Participation aux développements backend.
-      ¤ Implémentation de système géographique et horodatage
-      ¤ Intégration de maquette.
-Environnement techniques:
-      ¤ Git, Angular, Laravel, MySQL, Meilisearch, ElasticSearch
-`
-      }
-    ),
+    company: 'DIGITAL-ALL AGENCY',
+    role: 'Développeur mobile (freelance)',
+    period: 'Mai 2021 – Juillet 2021',
+    technologies: 'Ionic • Firebase',
+    description: "Conception et réalisation d'une application d'écriture pour planifier des séances d'écriture, intégration de maquettes.",
+    enabled: true,
+    link: ''
   },
   {
-    title: 'Développeur mobile - freelance',
-    subtitle: 'DIGITAL-ALL AGENCY | Mai 2021 - Juillet 2021',
-    description: h(
-      'div',
-      {
-        style: 'white-space:break-spaces',
-        innerHTML:
-          `Mission:
-      ¤ Conception et réalisation d’une application une d’écriture
-        qui permet aux écrivains de planifier leurs séances d’écriture.
-      ¤ Intégration de maquette
-Environnement technique:
-      ¤ Ionic, capacitor, Angular, Firebase`
-      }
-    ),
+    company: 'EXVAL',
+    role: 'Intégrateur frontend - freelance',
+    period: 'Février 2021',
+    technologies: 'VueJS',
+    description: "Intégration d'une maquette pour un site de présentation",
+    enabled: true,
+    link: ''
   },
+  {
+    company: 'Groupe Global World',
+    role: 'Intégrateur frontend - freelance',
+    period: 'Octobre 2020',
+    technologies: 'Wordpress',
+    description: "Intégration d'une maquette pour un site de présentation",
+    enabled: true,
+    link: ''
+  }
 ];
 
 const competence = {
@@ -254,5 +227,14 @@ const competenceTools = [
 <style lang="scss">
 .underline {
   border-bottom: 2px solid $primary;
+}
+
+.tech-chip {
+  margin-top: 8px;
+  padding: 4px 8px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  font-size: 0.8em;
+  display: inline-block;
 }
 </style>
