@@ -1,6 +1,14 @@
 <template>
-  <q-drawer v-model="drawer" :width="platform == 'sm' || platform == 'md' ? 170 : 200" show-if-above bordered
-    class="bg-dark overflow-hidden" dark side="left" :breakpoint="599">
+  <q-drawer
+    v-model="drawer"
+    :width="platform == 'sm' || platform == 'md' ? 170 : 200"
+    show-if-above
+    bordered
+    class="bg-dark overflow-hidden"
+    dark
+    side="left"
+    :breakpoint="599"
+  >
     <div class="relative-position">
       <div class="full-height full-width">
         <q-avatar square size="200px" class="q-mb-sm">
@@ -8,14 +16,17 @@
         </q-avatar>
       </div>
       <div class="absolute-bottom text-white text-center text-bold" style="bottom: 8px">
-        <h2 class="text-uppercase bg-primary" style="
+        <h2
+          class="text-uppercase bg-primary"
+          style="
             text-shadow: rgba(0, 0, 0, 0.5) 0px 2px 10px;
             z-index: 1;
             font-size: 18px;
             line-height: 30px;
             font-weight: 600;
             letter-spacing: 1.5px;
-          ">
+          "
+        >
           Gabriel KWAN
         </h2>
       </div>
@@ -37,16 +48,33 @@
     <div class="absolute-bottom full-width">
       <div class="full-width justify-center row">
         <div>
-          <q-btn flat round color="dark" text-color="primary" icon="facebook"
-            href="https://www.facebook.com/profile.php?id=61561025909355" target="_blank" rel="noopener noreferrer" />
+          <q-btn
+            flat
+            round
+            color="dark"
+            text-color="primary"
+            icon="facebook"
+            href="https://www.facebook.com/profile.php?id=61561025909355"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
         </div>
         <div>
-          <q-btn flat round color="dark" text-color="primary" icon="fab fa-linkedin"
-            href="https://www.linkedin.com/in/gabriel-kwan-46208034b" target="_blank" rel="noopener noreferrer" />
+          <q-btn
+            flat
+            round
+            color="dark"
+            text-color="primary"
+            icon="fab fa-linkedin"
+            href="https://www.linkedin.com/in/gabriel-kwan-46208034b"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
         </div>
       </div>
       <div class="full-width text-center" style="font-size: 11px">
-        Gabriel kwan - 2025
+        Gabriel kwan
+        <!-- - 2025 -->
         <!--©-->
       </div>
     </div>

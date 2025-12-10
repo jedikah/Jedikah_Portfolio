@@ -15,7 +15,7 @@
         filled
         v-model="email"
         label="votre e-mail *"
-        type="mail"
+        type="email"
         lazy-rules
         :rules="[(val) => (val && val.length > 0) || 'Please type something']"
       />
@@ -32,11 +32,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import Card from '../utils/Card.vue';
 
 export default defineComponent({
   name: 'Contact',
   components: {
-    Card: require('../utils/Card.vue').default,
+    Card,
   },
   setup() {
     const editor = ref('');

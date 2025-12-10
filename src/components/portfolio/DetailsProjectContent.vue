@@ -8,9 +8,20 @@
 
         <br />
 
-        <q-carousel swipeable animated v-model="slide" v-model:fullscreen="fullscreen" thumbnails infinite>
-          <q-carousel-slide v-for="n in carousel_length" :key="n" :name="n"
-            :img-src="`portfolio/${src_name}/${n}.jpg`" />
+        <q-carousel
+          swipeable
+          animated
+          v-model="slide"
+          v-model:fullscreen="fullscreen"
+          thumbnails
+          infinite
+        >
+          <q-carousel-slide
+            v-for="n in carousel_length"
+            :key="n"
+            :name="n"
+            :img-src="`portfolio/${src_name}/${n}.jpg`"
+          />
         </q-carousel>
       </div>
     </template>
@@ -28,13 +39,9 @@
             <p v-for="(c, key) in caracteristics" :key="key">
               -
               <b class="underline">
-                {{ Object.keys(caracteristics[key])[0] }}
+                {{ getFirstKey(c) }}
               </b>
-              <span>
-                :
-                {{
-                  caracteristics[key][Object.keys(caracteristics[key])[0]]
-                }}</span>
+              <span> : {{ getFirstValue(c) }} </span>
             </p>
           </div>
         </template>
@@ -69,21 +76,46 @@ const props = defineProps<{
   caracteristics: any[];
   descriptions: string;
   landscape: boolean;
-}>()
+}>();
 
 const slide = ref(1);
 const splitterModel = ref(props.landscape ? 750 : 220);
 const insideModel = ref(50);
-const fullscreen = ref(false)
+const fullscreen = ref(false);
 
+// Fonction utilitaire pour obtenir la première clé d'un objet de manière sûre
+const getFirstKey = (obj: Record<string, any> | null | undefined): string => {
+  if (obj && typeof obj === 'object') {
+    const keys = Object.keys(obj);
+    if (keys.length > 0) {
+      return keys[0] as string;
+    }
+  }
+  return '';
+};
+
+// Fonction utilitaire pour obtenir la première valeur d'un objet de manière sûre
+const getFirstValue = (obj: Record<string, any> | null | undefined): string => {
+  if (obj && typeof obj === 'object') {
+    const keys = Object.keys(obj);
+    if (keys.length > 0) {
+      const firstKey = keys[0] as string;
+      if (firstKey in obj) {
+        const value = obj[firstKey];
+        return value !== undefined ? String(value) : '';
+      }
+    }
+  }
+  return '';
+};
 </script>
 
 <style lang="scss">
-.portfolio-carousel>div>.q-carousel__control {
+.portfolio-carousel > div > .q-carousel__control {
   bottom: -80px;
 }
 
-.portfolio-carousel>.q-carousel {
+.portfolio-carousel > .q-carousel {
   overflow: unset;
 }
 </style>

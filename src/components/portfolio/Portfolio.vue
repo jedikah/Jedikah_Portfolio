@@ -2,21 +2,34 @@
   <Card title="Mon portfolio" icon="business_center">
     <template v-slot:section>
       <TwoPanel v-model="switchName">
-        <card-gallery v-for="(dp, key) in detailsProjects" :key="key" :src_name="dp.src_name" :label="dp.label" @click="
-          switchName = 'panel_2';
-        selected = dp;
-        " />
+        <card-gallery
+          v-for="(dp, key) in detailsProjects"
+          :key="key"
+          :src_name="dp.src_name"
+          :label="dp.label"
+          @click="
+            switchName = 'panel_2';
+            selected = dp;
+          "
+        />
 
         <template v-slot:panel_2>
           <div class="full-width full-height">
-            <DetailsProjectBanner @onBack="
-              switchName = 'panel_1';
-            selected = null;
-            " />
+            <DetailsProjectBanner
+              @onBack="
+                switchName = 'panel_1';
+                selected = null;
+              "
+            />
 
-            <DetailsProjectContent v-if="selected" :carousel_length="selected.carousel_length"
-              :src_name="selected.src_name" :caracteristics="selected.caracteristics"
-              :descriptions="selected.descriptions" :landscape="selected.landscape" />
+            <DetailsProjectContent
+              v-if="selected"
+              :carousel_length="selected.carousel_length"
+              :src_name="selected.src_name"
+              :caracteristics="selected.caracteristics"
+              :descriptions="selected.descriptions"
+              :landscape="selected.landscape"
+            />
           </div>
         </template>
       </TwoPanel>
@@ -54,7 +67,7 @@ const detailsProjects = [
         Elle permet de renseigner de commencer un projet, le nombre total de mots estimé ou de caractères.
         Affiche un graphique pour montrer l'avancement du projet et une autre courbe avec le nombre de mots
         qui ont été réellement écrits. Permet de prendre des notes et décrire un personnage. Elle met aussi
-        en relation différent écrivains.​`,
+        en relation différent écrivains.`,
   },
   {
     row: 2,
@@ -90,7 +103,8 @@ const detailsProjects = [
       { Librairie: '_' },
       { date: 'Décembre 2024 - maintenant' },
     ],
-    descriptions: 'Plateforme de mise en relation entre architecte / entreprise et porteur de projet.',
+    descriptions:
+      'Plateforme de mise en relation entre architecte / entreprise et porteur de projet.',
   },
 ];
 </script>

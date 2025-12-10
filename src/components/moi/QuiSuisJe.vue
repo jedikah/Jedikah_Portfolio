@@ -5,12 +5,11 @@
         <div class="full-width q-px-lg">
           <h3 class="text-white text-weight-bold">Développeur & Freelanceur</h3>
 
-          <p class=" q-mt-lg text-justify">
-            Passionné par le développement, j’aime apprendre et m’améliorer en continu.
-            Pour moi, un travail bien fait demande du temps et de l’attention aux détails,
-            car la précipitation mène souvent à des erreurs.
-            J’accorde donc une grande importance à la qualité du code, à son organisation et à sa clarté,
-            afin de garantir des solutions durables et efficaces.
+          <p class="q-mt-lg text-justify">
+            Passionné par le développement, j’aime apprendre et m’améliorer en continu. Pour moi, un
+            travail bien fait demande du temps et de l’attention aux détails, car la précipitation
+            mène souvent à des erreurs. J’accorde donc une grande importance à la qualité du code, à
+            son organisation et à sa clarté, afin de garantir des solutions durables et efficaces.
           </p>
         </div>
       </div>
@@ -35,8 +34,10 @@
       <q-card-section class="row">
         <div class="full-width row justify-center">
           <div class="col-12 row justify-center">
-            <h3 class="text-white text-weight-bold text-center underline"
-              style="display: inline-block; letter-spacing: 1px">
+            <h3
+              class="text-white text-weight-bold text-center underline"
+              style="display: inline-block; letter-spacing: 1px"
+            >
               Services
             </h3>
           </div>
@@ -62,11 +63,12 @@
 
 <script lang="ts">
 import { defineComponent, computed } from 'vue';
+import Card from '../utils/Card.vue';
 
 export default defineComponent({
   name: 'QuiSuisje',
   components: {
-    Card: require('../utils/Card.vue').default,
+    Card,
   },
   setup() {
     const age = computed(() => {
@@ -80,8 +82,7 @@ export default defineComponent({
       { key: 'Nom', value: '&nbsp KWAN' },
       {
         key: 'Prenom',
-        value:
-          '&nbsp Yannick <span style="border-bottom: 1px solid white">Gabriel</span>',
+        value: '&nbsp Yannick <span style="border-bottom: 1px solid white">Gabriel</span>',
       },
       { key: 'Age', value: '&nbsp ' + age.value },
       { key: 'Adresse', value: '&nbsp Bemasoandro Itaosy' },

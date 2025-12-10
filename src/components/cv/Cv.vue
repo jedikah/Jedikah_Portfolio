@@ -7,8 +7,14 @@
             <span class="underline">FORMATIONS</span>
           </q-timeline-entry>
 
-          <q-timeline-entry v-for="(formation, key) in formations" :key="key" :title="formation.title"
-            :subtitle="formation.subtitle" color="primary" icon="fas fa-calendar-day">
+          <q-timeline-entry
+            v-for="(formation, key) in formations"
+            :key="key"
+            :title="formation.title"
+            :subtitle="formation.subtitle"
+            color="primary"
+            icon="fas fa-calendar-day"
+          >
             <div>{{ formation.description }}</div>
           </q-timeline-entry>
         </q-timeline>
@@ -18,9 +24,15 @@
             <span class="underline">EXPERIENCES PROFESSIONNELLE</span>
           </q-timeline-entry>
 
-          <q-timeline-entry v-for="(experience, key) in experiences" :key="key" :title="experience.role"
-            :subtitle="experience.company + ' | ' + experience.period" :body="(experience.description as any)" color="primary"
-            icon="fas fa-calendar-day">
+          <q-timeline-entry
+            v-for="(experience, key) in experiences"
+            :key="key"
+            :title="experience.role"
+            :subtitle="experience.company + ' | ' + experience.period"
+            :body="experience.description as any"
+            color="primary"
+            icon="fas fa-calendar-day"
+          >
             <div v-if="experience.technologies" class="tech-chip">
               Technologies: {{ experience.technologies }}
             </div>
@@ -43,8 +55,13 @@
         </div>
 
         <div class="full-width row justify-center q-col-gutter-lg">
-          <Progress v-for="(front, key) in competenceFront" :key="key" :title="front.title" :label="front.label"
-            :value="front.value" />
+          <Progress
+            v-for="(front, key) in competenceFront"
+            :key="key"
+            :title="front.title"
+            :label="front.label"
+            :value="front.value"
+          />
         </div>
 
         <div class="full-width row justify-center" style="margin-top: 30px">
@@ -54,8 +71,13 @@
         </div>
 
         <div class="full-width row justify-center q-col-gutter-lg">
-          <Progress v-for="(back, key) in competenceBack" :key="key" :title="back.title" :label="back.label"
-            :value="back.value" />
+          <Progress
+            v-for="(back, key) in competenceBack"
+            :key="key"
+            :title="back.title"
+            :label="back.label"
+            :value="back.value"
+          />
         </div>
 
         <div class="full-width row justify-center" style="margin-top: 30px">
@@ -65,8 +87,13 @@
         </div>
 
         <div class="full-width row justify-center q-col-gutter-lg">
-          <Progress v-for="(tool, key) in competenceTools" :key="key" :title="tool.title" :label="tool.label"
-            :value="tool.value" />
+          <Progress
+            v-for="(tool, key) in competenceTools"
+            :key="key"
+            :title="tool.title"
+            :label="tool.label"
+            :value="tool.value"
+          />
         </div>
       </q-card-section>
     </template>
@@ -78,13 +105,11 @@ import { defineComponent, h } from 'vue';
 import Card from '../utils/Card.vue';
 import Progress from './Progress.vue';
 
-
 const formations = [
   {
     title: "Master - Ecole Nationale d' Informatique",
     subtitle: '2020 - 2022',
-    description:
-      'Master en informatique / parcours Génie Logiciel et Bases de données.',
+    description: 'Master en informatique / parcours Génie Logiciel et Bases de données.',
   },
   {
     title: "Licence - Ecole Nationale d' Informatique",
@@ -95,41 +120,45 @@ const formations = [
 ];
 
 const experiences = [
- {
+  {
     company: 'Diactive+',
     role: 'Chef de projet',
     period: 'Août 2024 – Décembre 2024',
     technologies: 'React Native • Quasar (Vue)',
-    description: "Gestion d'équipe, accompagnement à la conception et réalisation d'applications mobile et web, développement et maintenance d'interfaces utilisateur.",
+    description:
+      "Gestion d'équipe, accompagnement à la conception et réalisation d'applications mobile et web, développement et maintenance d'interfaces utilisateur.",
     enabled: true,
-    link: ''
+    link: '',
   },
   {
     company: 'Hello Archi',
     role: 'Développeur / Lead Dev',
     period: "Décembre 2023 – Aujourd'hui",
     technologies: 'Next.js • Express',
-    description: "Intégration de nouvelles fonctionnalités, restructuration du codebase, gestion d'une équipe composée de développeurs, DevOps et admin sys.",
+    description:
+      "Intégration de nouvelles fonctionnalités, restructuration du codebase, gestion d'une équipe composée de développeurs, DevOps et admin sys.",
     enabled: true,
-    link: 'https://hello-archi.com'
+    link: 'https://hello-archi.com',
   },
   {
     company: 'Relia Consulting',
     role: 'Développeur Web',
     period: 'Janvier 2022 – Novembre 2023',
     technologies: 'Angular • Laravel • MySQL',
-    description: 'Participations aux développements frontend et backend, intégration de maquettes. Environnements : Git, Angular, Laravel, MySQL, Meilisearch, ElasticSearch.',
+    description:
+      'Participations aux développements frontend et backend, intégration de maquettes. Environnements : Git, Angular, Laravel, MySQL, Meilisearch, ElasticSearch.',
     enabled: true,
-    link: ''
+    link: '',
   },
   {
     company: 'DIGITAL-ALL AGENCY',
     role: 'Développeur mobile (freelance)',
     period: 'Mai 2021 – Juillet 2021',
     technologies: 'Ionic • Firebase',
-    description: "Conception et réalisation d'une application d'écriture pour planifier des séances d'écriture, intégration de maquettes.",
+    description:
+      "Conception et réalisation d'une application d'écriture pour planifier des séances d'écriture, intégration de maquettes.",
     enabled: true,
-    link: ''
+    link: '',
   },
   {
     company: 'EXVAL',
@@ -138,7 +167,7 @@ const experiences = [
     technologies: 'VueJS',
     description: "Intégration d'une maquette pour un site de présentation",
     enabled: true,
-    link: ''
+    link: '',
   },
   {
     company: 'Groupe Global World',
@@ -147,17 +176,17 @@ const experiences = [
     technologies: 'Wordpress',
     description: "Intégration d'une maquette pour un site de présentation",
     enabled: true,
-    link: ''
-  }
+    link: '',
+  },
 ];
 
 const competence = {
   html5: 0.78,
   javascript: 0.87,
   vueJs: 0.85,
-  angular: 0.55,
+  angular: 0.7,
   reactJs: 0.72,
-  elasticsearch: 0.75,
+  elasticsearch: 0.4,
   expressJs: 0.85,
   nestJs: 0.88,
   git: 0.65,

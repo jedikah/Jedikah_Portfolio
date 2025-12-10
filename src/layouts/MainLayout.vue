@@ -12,13 +12,15 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import Header from '../components/layout/Header.vue';
+import LeftDrawer from '../components/layout/Drawer.vue';
 
 export default defineComponent({
   name: 'MainLayout',
 
   components: {
-    Header: require('../components/layout/Header.vue').default,
-    LeftDrawer: require('../components/layout/Drawer.vue').default,
+    Header,
+    LeftDrawer,
   },
 
   setup() {

@@ -1,14 +1,27 @@
 <template>
   <div style="height: 100vh" class="full-width relative-position">
-    <q-carousel animated v-model="slide" navigation infinite :autoplay="autoplay" arrows transition-prev="slide-right"
-      transition-next="slide-left" @mouseenter="autoplay = false" @mouseleave="autoplay = true"
-      class="full-height full-width absolute" style="z-index: 1">
+    <q-carousel
+      animated
+      v-model="slide"
+      navigation
+      infinite
+      :autoplay="autoplay"
+      arrows
+      transition-prev="slide-right"
+      transition-next="slide-left"
+      @mouseenter="autoplay = false"
+      @mouseleave="autoplay = true"
+      class="full-height full-width absolute"
+      style="z-index: 1"
+    >
       <q-carousel-slide :name="1" img-src="slide1.jpg" />
       <q-carousel-slide :name="2" img-src="slide2.jpg" />
       <q-carousel-slide :name="3" img-src="slide3.jpg" />
     </q-carousel>
-    <div class="full-height full-width text-white absolute row justify-center items-center"
-      style="z-index: 2; background: #00000068">
+    <div
+      class="full-height full-width text-white absolute row justify-center items-center"
+      style="z-index: 2; background: #00000068"
+    >
       <div class="full-width row justify-center items-center">
         <h1 class="full-width text-center">
           Gabriel <span style="color: var(--q-primary)">Kwan</span>
@@ -45,8 +58,7 @@ const accueilMeta: Meta = {
       `,
     },
     keywords: {
-      name:
-        'freelanceur c.v developpeur web mobile fullstack front-end back-end VueJs Quasar-Framework electron',
+      name: 'freelanceur c.v developpeur web mobile fullstack front-end back-end VueJs Quasar-Framework electron',
       content: `Gabriel Kwan...
       Je suis un Développeur web fullstack et mobile... Qui suis-je ?
       Développeur & Freelanceur... COMPÉTENCES: Front-end et back-end
@@ -60,5 +72,4 @@ const accueilMeta: Meta = {
 };
 
 useMeta(accueilMeta);
-
 </script>

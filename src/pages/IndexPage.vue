@@ -10,15 +10,20 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import Accueil from '../components/accueil/Accueil.vue';
+import Moi from '../components/moi/QuiSuisJe.vue';
+import Cv from '../components/cv/Cv.vue';
+import Portfolio from '../components/portfolio/Portfolio.vue';
+// import Contact from '../components/contact/Contact.vue';
 
 export default defineComponent({
   name: 'PageIndex',
   components: {
-    Accueil: require('../components/accueil/Accueil.vue').default,
-    Moi: require('../components/moi/QuiSuisJe.vue').default,
-    Cv: require('../components/cv/Cv.vue').default,
-    Portfolio: require('../components/portfolio/Portfolio.vue').default,
-    // Contact: require('../components/contact/Contact.vue').default,
+    Accueil,
+    Moi,
+    Cv,
+    Portfolio,
+    // Contact,
   },
   setup() {
     return {};
